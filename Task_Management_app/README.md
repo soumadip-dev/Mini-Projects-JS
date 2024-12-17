@@ -3,7 +3,7 @@
 
 A simple and intuitive task management application for adding and managing TODOs.
 
-![Task Management App](https://github.com/soumadip-dev/JS-Mini-Projects/blob/main/Task_Management_app/Screenshot.png)
+![Task Management App](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Task_Management_app/Screenshot.png)
 
 ## Features
 - Add new TODOs
