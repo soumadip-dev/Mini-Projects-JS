@@ -1,4 +1,4 @@
-# JS-Mini_Projects  
+# JS-Mini-Projects  
 Collection of small JavaScript projects to practice and demonstrate various coding concepts and techniques.
 
 ## Projects
