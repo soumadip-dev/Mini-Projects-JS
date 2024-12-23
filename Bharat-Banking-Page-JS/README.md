@@ -2,7 +2,7 @@
 
 The **Bharat Banking App** is a user-friendly web application designed to help users manage their bank accounts efficiently. Users can easily view account balances, transaction histories, and perform transfers. This application aims to provide a seamless banking experience with a strong emphasis on security and usability.
 
-![Banking App Interface](https://github.com/soumadip-dev/Bharat-Banking-Page-JS/blob/main/visuals/Bank_SS.png)
+![Banking App Interface](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Bharat-Banking-Page-JS/visuals/Bank_SS.png)
 
 ## Features
 
