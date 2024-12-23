@@ -2,7 +2,7 @@
 
 The **Bharat Banking Marketing Page** is a demo page that highlights the key features and functionalities of a modern banking app, built using JavaScript.
 
-![Marketing Page Screenshot](https://github.com/soumadip-dev/Bharat-Banking-MarketingPage-JS/blob/main/img/Screenshot.png)
+![Marketing Page Screenshot](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Bharat-Banking-MarketingPage-JS/img/Screenshot.png)
 
 ## Features
 
