@@ -1,4 +1,3 @@
-
 # Task Management App
 
 A simple and intuitive task management application for adding and managing TODOs.
@@ -34,3 +33,6 @@ A simple and intuitive task management application for adding and managing TODOs
 - **`editTask(event)`**: Edits an existing task.
 - **`deleteTask(event)`**: Deletes a task from the list.
 - **`addNewTask()`**: Adds a new task from the input field.
+
+## PRD
+Read about my first Product Requirement Document (PRD) on TODO app: [My First PRD: An Exciting Milestone in My Journey](https://web-dev-soumadip.hashnode.dev/my-first-prd-an-exciting-milestone-in-my-journey?ref=twitter-share)
