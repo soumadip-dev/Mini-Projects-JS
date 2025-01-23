@@ -19,7 +19,7 @@ A simple and intuitive task management application for adding and managing TODOs
 1. **Add a New TODO:** Enter your task in the input field and click the "Add Task" button or press Enter.
 2. **Edit a TODO:** Click the "Edit" button next to the task you want to modify. Enter the new task value in the prompt.
 3. **Delete a TODO:** Click the "Delete" button next to the task you want to remove.
-4. **Mark as Completed/Reset:** Click the "Completed" button to mark a task as completed or the "Reset" button to revert its status.
+4. **Mark as Completed/Reset:** Click the "Completed" button to mark a task as completed, or the "Reset" button to revert its status.
 5. **Filter TODOs:** Use the filter buttons to view tasks based on their completion status.
 
 ## Code Overview
@@ -35,4 +35,4 @@ A simple and intuitive task management application for adding and managing TODOs
 - **`addNewTask()`**: Adds a new task from the input field.
 
 ## PRD
-Read about my first Product Requirement Document (PRD) on TODO app: [My First PRD: An Exciting Milestone in My Journey](https://web-dev-soumadip.hashnode.dev/my-first-prd-an-exciting-milestone-in-my-journey?ref=twitter-share)
+Read about my first Product Requirement Document (PRD) on the TODO app: [My First PRD: An Exciting Milestone in My Journey](https://web-dev-soumadip.hashnode.dev/my-first-prd-an-exciting-milestone-in-my-journey?ref=twitter-share)
