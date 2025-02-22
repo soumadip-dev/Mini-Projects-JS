@@ -1,0 +1,79 @@
+/* Basic page styling */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+/* Light bulb container */
+.bulb-container {
+  margin: 40px auto;
+  position: relative;
+  width: 100px;
+  height: 150px;
+}
+
+/* Light bulb styles */
+.bulb {
+  width: 80px;
+  height: 80px;
+  background-color: #f1c40f; /* Yellow light */
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 50px rgba(241, 196, 15, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Bulb "off" state */
+.bulb.off {
+  background-color: #95a5a6; /* Gray bulb when off */
+  box-shadow: none;
+}
+
+/* Bulb base */
+.bulb-base {
+  width: 30px;
+  height: 40px;
+  background-color: #7f8c8d;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 5px 5px;
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Status text styling */
+.switch-status {
+  margin-top: 20px;
+  font-weight: bold;
+}
