@@ -18,9 +18,13 @@
 
 ## 📦 Projects
 
+<div align="center">
+
 |       Project        |                     Preview                     |
 |:--------------------:|:-----------------------------------------------:|
 | 💡 **[Dark Mode Bulb Toggle](https://github.com/soumadip-dev/Mini-Projects-JS/tree/main/DarkMode_Bulb_Toggle)**<br>Toggle a bulb with a dark mode effect. | <div align="center"><img src="https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/DarkMode_Bulb_Toggle/SS_DarkMode_Bulb.jpg" width="320" height="200" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1)"></div> |
+
+</div>
 
 ---
 
