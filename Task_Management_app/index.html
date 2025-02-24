@@ -10,57 +10,26 @@
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <title>Task List Application</title>
   <!-- Link to the external JavaScript file for functionality -->
-  <script defer src="./app.js"></script>
+  <script defer src="./script.js"></script>
 </head>
 
 <body>
-  <main class="container">
-    <header class="app-header">
-      <h1>Task List</h1>
-      <p class="app-subtitle">Organize your workflow efficiently</p>
-    </header>
-    <!-- Add Task Section -->
-    <section class="task-interface">
-      <form class="task-form" id="taskForm">
-        <input type="text" id="taskInput" class="task-input" placeholder="Add a new task..." aria-label="Enter new task"
-          required>
-        <button type="submit" id="addButton" class="add-button" aria-label="Add task">
-          <span class="button-text">Add Task</span>
-          <span class="plus-icon">+</span>
-        </button>
-      </form>
-      <!-- Filter Buttons -->
-      <div class="filter-controls">
-        <div class="filter-buttons"  aria-label="Task filters">
-          <button class="filter-button active" data-filter="all">All Tasks</button>
-          <button class="filter-button" data-filter="completed">Completed</button>
-          <button class="filter-button" data-filter="pending">Pending</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Task List Section -->
-    <section class="task-list-section">
-      <ul id="taskList" class="task-list" >
-        <li class="empty-state">
-          <img src="data:image/svg+xml;base64,..." alt="" class="empty-illustration">
-          <p>No tasks yet. Add one above!</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Task analytics Section -->
-    <footer class="task-analytics">
-      <div class="stats-container">
-        <span class="stat-badge total-tasks">
-          Total tasks: <span id="totalTasks">0</span>
-        </span>
-        <span class="stat-badge completed-tasks">
-          Completed:<span id="completedTasks">0</span>
-        </span>
-      </div>
-    </footer>
-  </main>
+  <h1>Task List</h1>
+  <!-- Add Task Section -->
+  <div class="task-form">
+    <input type="text" id="taskInput" class="task-input" placeholder="Add a new task..." aria-label="Enter new task" />
+    <button id="addButton" class="add-button" aria-label="Add task"><span class="button-text">Add Task</span>
+      <span class="plus-icon">+</span></button>
+  </div>
+  <!-- Task List Section -->
+  <ul id="taskList" class="task-list">
+    <li id="emptyList" class="empty-list">No tasks yet. Add one above!</li>
+  </ul>
+  <!-- Task analytics Section -->
+  <div class="task-stats">
+    <span id="totalTasks">Total tasks: 0</span>
+    <span id="completedTasks">Completed: 0</span>
+  </div>
 </body>
 
 </html>
