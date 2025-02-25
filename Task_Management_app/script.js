@@ -73,6 +73,7 @@ function appendTodoInHTML(todoInp) {
   const editBtn = document.createElement('button');
   editBtn.textContent = 'Edit';
   editBtn.classList.add('edit-btn');
+  editBtn.addEventListener('click', editTodo);
 
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
@@ -125,7 +126,7 @@ function resetHtmlTodos(todos) {
   updateUI();
 }
 
-// Toggle Todo completed
+// Toggle Task completed
 function toggleTodo(event) {
   const todoItem = event.target.parentElement.parentElement;
   const todoId = parseInt(todoItem.getAttribute('data-id'));
@@ -139,6 +140,7 @@ function toggleTodo(event) {
   resetHtmlTodos(todos);
 }
 
+// Delete specific task
 function deleteTodo(event) {
   const todoItem = event.target.parentElement.parentElement;
   const todoId = parseInt(todoItem.getAttribute('data-id'));
@@ -148,12 +150,32 @@ function deleteTodo(event) {
   resetHtmlTodos(todos);
 }
 
+// Edit Task
+function editTodo(event) {
+  const todoItem = event.target.parentElement.parentElement;
+  const todoId = parseInt(todoItem.getAttribute('data-id'));
+  let todos = loadTodos();
+
+  const updatedText = prompt('Enter the updated task text');
+  if (updatedText !== null && updatedText.trim() !== '') {
+    todos.todoList.forEach(todo => {
+      if (todo.id === todoId) {
+        todo.text = updatedText;
+      }
+    });
+  } else {
+    alert('Task update canceled.');
+  }
+  refreshTodos(todos);
+  resetHtmlTodos(todos);
+}
+
 // Update the UI
 function updateUI() {
   const todos = loadTodos();
   const completedCount = todos.todoList.filter(todo => todo.isCompleted).length;
   totalTask.textContent = `Total tasks: ${todos.todoList.length}`;
-  
+
   completedTask.textContent = `Completed: ${completedCount}`;
 
   emptyList.style.display = todos.todoList.length === 0 ? 'block' : 'none';
