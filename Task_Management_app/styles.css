@@ -57,6 +57,16 @@ h1 {
   background: linear-gradient(to right, #2980b9, #1c638d);
   transform: translateY(-2px);
 }
+.empty-list {
+  display: block; 
+  visibility: visible;
+  text-align: center;
+  color: #626b6b;
+  font-size: 1rem;
+  margin-top: 10px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
 
 .filter-buttons {
   display: flex;

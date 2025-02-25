@@ -5,6 +5,7 @@ const todoListUl = document.getElementById('taskList');
 const emptyList = document.getElementById('emptyList');
 const filterButtons = document.getElementById('filter');
 const totalTask = document.getElementById('totalTasks');
+const completedTask = document.getElementById('completedTasks');
 const filterButton = document.querySelectorAll('.filter-btn');
 
 /////////////// Functions
@@ -76,6 +77,7 @@ function appendTodoInHTML(todoInp) {
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.classList.add('delete-btn');
+  deleteBtn.addEventListener('click', deleteTodo);
 
   const completeBtn = document.createElement('button');
   completeBtn.textContent = todoInp.isCompleted ? 'Reset' : 'Completed';
@@ -85,14 +87,10 @@ function appendTodoInHTML(todoInp) {
   wrapper.appendChild(completeBtn);
   wrapper.appendChild(editBtn);
   wrapper.appendChild(deleteBtn);
-
   todo.appendChild(wrapper);
-
   todoListUl.appendChild(todo);
 
-  // Update total task count
-  const todos = loadTodos();
-  totalTask.textContent = `Total tasks: ${todos.todoList.length}`;
+  updateUI();
 }
 
 // Filter button action
@@ -120,6 +118,13 @@ function executeFilterAction(event) {
   }
 }
 
+// reset html after any operation
+function resetHtmlTodos(todos) {
+  todoListUl.innerHTML = '';
+  todos.todoList.forEach(todo => appendTodoInHTML(todo));
+  updateUI();
+}
+
 // Toggle Todo completed
 function toggleTodo(event) {
   const todoItem = event.target.parentElement.parentElement;
@@ -131,10 +136,28 @@ function toggleTodo(event) {
     }
   });
   refreshTodos(todos);
-  todoListUl.innerHTML = '';
-  todos.todoList.forEach(todo => {
-    appendTodoInHTML(todo);
-  });
+  resetHtmlTodos(todos);
+}
+
+function deleteTodo(event) {
+  const todoItem = event.target.parentElement.parentElement;
+  const todoId = parseInt(todoItem.getAttribute('data-id'));
+  let todos = loadTodos();
+  todos.todoList = todos.todoList.filter(todo => todo.id != todoId);
+  refreshTodos(todos);
+  resetHtmlTodos(todos);
+}
+
+// Update the UI
+function updateUI() {
+  const todos = loadTodos();
+  const completedCount = todos.todoList.filter(todo => todo.isCompleted).length;
+  totalTask.textContent = `Total tasks: ${todos.todoList.length}`;
+  
+  completedTask.textContent = `Completed: ${completedCount}`;
+
+  emptyList.style.display = todos.todoList.length === 0 ? 'block' : 'none';
+  filterButtons.style.display = todos.todoList.length === 0 ? 'none' : 'flex';
 }
 
 /////////////// Event Listeners
@@ -171,3 +194,4 @@ if (todos.todoList.length === 0) {
     appendTodoInHTML(todo);
   });
 }
+updateUI();
