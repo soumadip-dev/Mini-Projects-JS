@@ -3,6 +3,9 @@ const todoInput = document.getElementById('taskInput');
 const submitButton = document.getElementById('addButton');
 const todoListUl = document.getElementById('taskList');
 const emptyList = document.getElementById('emptyList');
+const filterButtons = document.getElementById('filter');
+const totalTask = document.getElementById('totalTasks');
+const filterButton = document.querySelectorAll('.filter-btn');
 
 /////////////// Functions
 
@@ -12,35 +15,134 @@ function loadTodos() {
   return todos;
 }
 
+// Save todos to localStorage
+function refreshTodos(todos) {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
 // Add a new todo to localStorage
-function addTodoToLocalStorage(todoText) {
+function addTodoToLocalStorage(todoInp) {
   const todos = loadTodos(); // Retrieve existing todos
-  todos.todoList.push(todoText); // Add new todo
+  todos.todoList.push({ ...todoInp }); // Add new todo
   localStorage.setItem('todos', JSON.stringify(todos)); // Save updated list back to localStorage
 }
 
 // Handle adding a new todo from the input field to local storage
 function handleTodoSubmission() {
-  const todoText = todoInput.value;
+  let todos = loadTodos();
+  const todoText = todoInput.value.trim();
   if (todoText === '') {
     alert('Please write something for the task');
   } else {
-    addTodoToLocalStorage(todoText);
+    addTodoToLocalStorage({
+      text: todoText,
+      isCompleted: false,
+      id: todos.todoList.length,
+    });
     todoInput.value = '';
-    appendTodoInHTML(todoText);
+    appendTodoInHTML({
+      text: todoText,
+      isCompleted: false,
+      id: todos.todoList.length,
+    });
   }
 }
 
 // Handle adding a new todo In DOM
-function appendTodoInHTML(todoText) {
+function appendTodoInHTML(todoInp) {
   emptyList.style.display = 'none';
+  filterButtons.style.display = 'flex';
   const todo = document.createElement('li');
-  todo.textContent = todoText;
+
+  todo.setAttribute('data-id', todoInp.id);
   todo.classList.add('task-item');
+
+  // Add task text element
+  const taskText = document.createElement('span');
+  taskText.classList.add('task-text');
+  taskText.textContent = todoInp.text;
+  todo.appendChild(taskText);
+
+  if (todoInp.isCompleted) {
+    todo.classList.add('completed');
+  }
+
+  const wrapper = document.createElement('div');
+
+  const editBtn = document.createElement('button');
+  editBtn.textContent = 'Edit';
+  editBtn.classList.add('edit-btn');
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.classList.add('delete-btn');
+
+  const completeBtn = document.createElement('button');
+  completeBtn.textContent = todoInp.isCompleted ? 'Reset' : 'Completed';
+  completeBtn.classList.add('complete-btn');
+  completeBtn.addEventListener('click', toggleTodo);
+
+  wrapper.appendChild(completeBtn);
+  wrapper.appendChild(editBtn);
+  wrapper.appendChild(deleteBtn);
+
+  todo.appendChild(wrapper);
+
   todoListUl.appendChild(todo);
+
+  // Update total task count
+  const todos = loadTodos();
+  totalTask.textContent = `Total tasks: ${todos.todoList.length}`;
+}
+
+// Filter button action
+function executeFilterAction(event) {
+  const element = event.target;
+  const value = element.getAttribute('data-filter');
+  todoListUl.innerHTML = '';
+  const todos = loadTodos();
+  if (value === 'all') {
+    todos.todoList.forEach(todo => {
+      appendTodoInHTML(todo);
+    });
+  } else if (value === 'pending') {
+    todos.todoList.forEach(todo => {
+      if (!todo.isCompleted) {
+        appendTodoInHTML(todo);
+      }
+    });
+  } else {
+    todos.todoList.forEach(todo => {
+      if (todo.isCompleted) {
+        appendTodoInHTML(todo);
+      }
+    });
+  }
+}
+
+// Toggle Todo completed
+function toggleTodo(event) {
+  const todoItem = event.target.parentElement.parentElement;
+  const todoId = parseInt(todoItem.getAttribute('data-id'));
+  const todos = loadTodos();
+  todos.todoList.forEach(todo => {
+    if (todo.id === todoId) {
+      todo.isCompleted = !todo.isCompleted;
+    }
+  });
+  refreshTodos(todos);
+  todoListUl.innerHTML = '';
+  todos.todoList.forEach(todo => {
+    appendTodoInHTML(todo);
+  });
 }
 
 /////////////// Event Listeners
+
+// Filter button event
+filterButton.forEach(btn => {
+  btn.addEventListener('click', executeFilterAction);
+});
 
 // Click event for the add button
 submitButton.addEventListener('click', () => {
@@ -63,12 +165,9 @@ todoInput.addEventListener('change', event => {
 const todos = loadTodos();
 if (todos.todoList.length === 0) {
   emptyList.style.display = 'block';
+  filterButtons.style.display = 'none';
 } else {
   todos.todoList.forEach(todo => {
-    emptyList.style.display = 'none';
-    const todoItem = document.createElement('li');
-    todoItem.textContent = todo;
-    todoItem.classList.add('task-item');
-    todoListUl.appendChild(todoItem);
+    appendTodoInHTML(todo);
   });
 }
