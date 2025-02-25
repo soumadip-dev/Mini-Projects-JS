@@ -8,7 +8,7 @@ A simple, responsive, and user-friendly Task List Application built with HTML, C
 
 | Light Theme | Dark Theme |
 |-------------|------------|
-| ![Light Theme](light-theme.png) | ![Dark Theme](dark-theme.png) |
+| ![Light Theme](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Task_Management_app/SS_LIGHT_TODO.png) | ![Dark Theme](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Task_Management_app/SS_DARK_TODO.png) |
 
 ---
 
