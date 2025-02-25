@@ -1,38 +1,29 @@
-# Task Management App
+# Task List Application
 
-A simple and intuitive task management application for adding and managing TODOs.
+A simple, responsive, and user-friendly Task List Application built with HTML, CSS, and JavaScript. This application allows users to add, edit, delete, and filter tasks, with support for light and dark themes. It also provides task analytics, such as total tasks and completed tasks.
 
-![Task Management App](https://github.com/soumadip-dev/Mini-Projects-JS/blob/main/Task_Management_app/Screenshot.png)
+---
+
+## Screenshots
+
+| Light Theme | Dark Theme |
+|-------------|------------|
+| ![Light Theme](light-theme.png) | ![Dark Theme](dark-theme.png) |
+
+---
 
 ## Features
-- Add new TODOs
-- View a list of TODOs
-- Edit existing TODOs
-- Delete TODOs
-- Filter TODOs by status (All, Pending, Completed)
 
-## Installation
-1. Clone the repository.
-2. Open `index.html` in your browser.
+- **Add Tasks**: Easily add new tasks with a clean input field.
+- **Edit Tasks**: Update task descriptions with a single click.
+- **Delete Tasks**: Remove tasks you no longer need.
+- **Filter Tasks**: View all, completed, or pending tasks.
+- **Task Analytics**: Track total tasks and completed tasks.
+- **Light/Dark Theme**: Switch between light and dark modes for better readability.
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices.
+- **Local Storage**: Tasks are saved in the browser's local storage for persistence.
 
-## Usage
-1. **Add a New TODO:** Enter your task in the input field and click the "Add Task" button or press Enter.
-2. **Edit a TODO:** Click the "Edit" button next to the task you want to modify. Enter the new task value in the prompt.
-3. **Delete a TODO:** Click the "Delete" button next to the task you want to remove.
-4. **Mark as Completed/Reset:** Click the "Completed" button to mark a task as completed, or the "Reset" button to revert its status.
-5. **Filter TODOs:** Use the filter buttons to view tasks based on their completion status.
+---
 
-## Code Overview
-- **`loadTasks()`**: Retrieves tasks from localStorage or initializes an empty task list.
-- **`refreshTasks(tasks)`**: Updates localStorage with the current task list.
-- **`addTaskToLocalStorage(task)`**: Adds a new task to localStorage.
-- **`appendTaskToHtml(task)`**: Appends a task to the HTML task list.
-- **`executeFilterAction(event)`**: Filters tasks based on the selected status.
-- **`toggleTask(event)`**: Toggles the completion status of a task.
-- **`resetHtmlTasks(tasks)`**: Resets the task list and re-renders tasks.
-- **`editTask(event)`**: Edits an existing task.
-- **`deleteTask(event)`**: Deletes a task from the list.
-- **`addNewTask()`**: Adds a new task from the input field.
+Enjoy managing your tasks efficiently with this simple and elegant Task List Application! 🚀
 
-## PRD
-Read about my first Product Requirement Document (PRD) on the TODO app: [My First PRD: An Exciting Milestone in My Journey](https://web-dev-soumadip.hashnode.dev/my-first-prd-an-exciting-milestone-in-my-journey?ref=twitter-share)

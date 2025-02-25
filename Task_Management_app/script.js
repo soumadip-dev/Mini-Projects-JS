@@ -7,8 +7,20 @@ const filterButtons = document.getElementById('filter');
 const totalTask = document.getElementById('totalTasks');
 const completedTask = document.getElementById('completedTasks');
 const filterButton = document.querySelectorAll('.filter-btn');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
 /////////////// Functions
+
+// chage theme
+function changeTheme() {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+}
 
 // Load tasks from localStorage or return an empty task list if none exist
 function loadTasks() {
@@ -184,6 +196,16 @@ function updateUI() {
 
 /////////////// Event Listeners
 
+// ....
+const currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+  ? 'dark'
+  : 'light';
+if (currentTheme === 'dark') {
+  body.classList.add('dark-mode');
+  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+themeToggle.addEventListener('click', changeTheme);
+
 // Filter button event
 filterButton.forEach(btn => {
   btn.addEventListener('click', executeFilterAction);
@@ -216,4 +238,5 @@ if (tasks.taskList.length === 0) {
     appendTaskInHTML(task);
   });
 }
+
 updateUI();
