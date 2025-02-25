@@ -7,28 +7,62 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  background: linear-gradient(to right, #f5f7fa, #e6e9ef);
+  color: #2c3e50;
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
   max-width: 600px;
-  margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 h1 {
   color: #2c3e50;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  color: #3498db;
 }
 
 .task-form {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .task-input {
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: 12px 16px;
   border: 2px solid #e9ecef;
   border-radius: 8px;
   font-size: 1rem;
@@ -44,12 +78,14 @@ h1 {
 .add-button {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 12px 20px;
   background: linear-gradient(to right, #3498db, #2980b9);
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
@@ -57,49 +93,51 @@ h1 {
   background: linear-gradient(to right, #2980b9, #1c638d);
   transform: translateY(-2px);
 }
+
 .empty-list {
-  display: block; 
-  visibility: visible;
+  display: block;
   text-align: center;
-  color: #626b6b;
+  color: #95a5a6;
   font-size: 1rem;
-  margin-top: 10px;
+  margin-top: 20px;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
 .filter-buttons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .filter-btn {
   padding: 10px 20px;
   background: #3498db;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
   transition: all 0.3s;
 }
 
 .filter-btn:hover {
   background: #2c7cb0;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 .task-list {
   list-style: none;
+  margin-bottom: 24px;
 }
 
 .task-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 16px;
   background: white;
   border-radius: 10px;
   margin-bottom: 12px;
@@ -112,13 +150,30 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.task-text {
+  flex: 1;
+  margin: 0 16px;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #95a5a6;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .complete-btn,
 .edit-btn,
 .delete-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 8px 12px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -152,34 +207,19 @@ h1 {
   color: white;
 }
 
-.task-text {
-  flex: 1;
-  margin: 0 1rem;
-  color: #2c3e50;
-  font-size: 1rem;
-}
-
-.task-item.completed .task-text {
-  text-decoration: line-through;
-  color: #95a5a6;
-}
-
 .task-stats {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 24px;
   color: #626b6b;
   font-size: 0.9rem;
-  padding: 1rem;
+  padding: 16px;
   border-top: 1px solid #e9ecef;
 }
 
 #totalTasks,
 #completedTasks {
-  padding: 0.25rem 0.75rem;
+  padding: 8px 16px;
   border-radius: 20px;
   background: #e9ecef;
-}
-.completed {
-  text-decoration: line-through;
 }

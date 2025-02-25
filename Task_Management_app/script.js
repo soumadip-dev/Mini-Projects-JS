@@ -1,7 +1,7 @@
 ////////////// DOM Elements
-const todoInput = document.getElementById('taskInput');
+const taskInput = document.getElementById('taskInput');
 const submitButton = document.getElementById('addButton');
-const todoListUl = document.getElementById('taskList');
+const taskListUl = document.getElementById('taskList');
 const emptyList = document.getElementById('emptyList');
 const filterButtons = document.getElementById('filter');
 const totalTask = document.getElementById('totalTasks');
@@ -10,62 +10,62 @@ const filterButton = document.querySelectorAll('.filter-btn');
 
 /////////////// Functions
 
-// Load todos from localStorage or return an empty todo list if none exist
-function loadTodos() {
-  const todos = JSON.parse(localStorage.getItem('todos')) || { todoList: [] };
-  return todos;
+// Load tasks from localStorage or return an empty task list if none exist
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || { taskList: [] };
+  return tasks;
 }
 
-// Save todos to localStorage
-function refreshTodos(todos) {
-  localStorage.setItem('todos', JSON.stringify(todos));
+// Save tasks to localStorage
+function refreshTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Add a new todo to localStorage
-function addTodoToLocalStorage(todoInp) {
-  const todos = loadTodos(); // Retrieve existing todos
-  todos.todoList.push({ ...todoInp }); // Add new todo
-  localStorage.setItem('todos', JSON.stringify(todos)); // Save updated list back to localStorage
+// Add a new task to localStorage
+function addTaskToLocalStorage(taskInp) {
+  const tasks = loadTasks(); // Retrieve existing tasks
+  tasks.taskList.push({ ...taskInp }); // Add new task
+  localStorage.setItem('tasks', JSON.stringify(tasks)); // Save updated list back to localStorage
 }
 
-// Handle adding a new todo from the input field to local storage
-function handleTodoSubmission() {
-  let todos = loadTodos();
-  const todoText = todoInput.value.trim();
-  if (todoText === '') {
+// Handle adding a new task from the input field to local storage
+function handleTaskSubmission() {
+  let tasks = loadTasks();
+  const taskText = taskInput.value.trim();
+  if (taskText === '') {
     alert('Please write something for the task');
   } else {
-    addTodoToLocalStorage({
-      text: todoText,
+    addTaskToLocalStorage({
+      text: taskText,
       isCompleted: false,
-      id: todos.todoList.length,
+      id: tasks.taskList.length,
     });
-    todoInput.value = '';
-    appendTodoInHTML({
-      text: todoText,
+    taskInput.value = '';
+    appendTaskInHTML({
+      text: taskText,
       isCompleted: false,
-      id: todos.todoList.length,
+      id: tasks.taskList.length,
     });
   }
 }
 
-// Handle adding a new todo In DOM
-function appendTodoInHTML(todoInp) {
+// Handle adding a new task In DOM
+function appendTaskInHTML(taskInp) {
   emptyList.style.display = 'none';
   filterButtons.style.display = 'flex';
-  const todo = document.createElement('li');
+  const task = document.createElement('li');
 
-  todo.setAttribute('data-id', todoInp.id);
-  todo.classList.add('task-item');
+  task.setAttribute('data-id', taskInp.id);
+  task.classList.add('task-item');
 
   // Add task text element
   const taskText = document.createElement('span');
   taskText.classList.add('task-text');
-  taskText.textContent = todoInp.text;
-  todo.appendChild(taskText);
+  taskText.textContent = taskInp.text;
+  task.appendChild(taskText);
 
-  if (todoInp.isCompleted) {
-    todo.classList.add('completed');
+  if (taskInp.isCompleted) {
+    task.classList.add('completed');
   }
 
   const wrapper = document.createElement('div');
@@ -73,23 +73,23 @@ function appendTodoInHTML(todoInp) {
   const editBtn = document.createElement('button');
   editBtn.textContent = 'Edit';
   editBtn.classList.add('edit-btn');
-  editBtn.addEventListener('click', editTodo);
+  editBtn.addEventListener('click', editTask);
 
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.classList.add('delete-btn');
-  deleteBtn.addEventListener('click', deleteTodo);
+  deleteBtn.addEventListener('click', deleteTask);
 
   const completeBtn = document.createElement('button');
-  completeBtn.textContent = todoInp.isCompleted ? 'Reset' : 'Completed';
+  completeBtn.textContent = taskInp.isCompleted ? 'Reset' : 'Completed';
   completeBtn.classList.add('complete-btn');
-  completeBtn.addEventListener('click', toggleTodo);
+  completeBtn.addEventListener('click', toggleTask);
 
   wrapper.appendChild(completeBtn);
   wrapper.appendChild(editBtn);
   wrapper.appendChild(deleteBtn);
-  todo.appendChild(wrapper);
-  todoListUl.appendChild(todo);
+  task.appendChild(wrapper);
+  taskListUl.appendChild(task);
 
   updateUI();
 }
@@ -98,88 +98,88 @@ function appendTodoInHTML(todoInp) {
 function executeFilterAction(event) {
   const element = event.target;
   const value = element.getAttribute('data-filter');
-  todoListUl.innerHTML = '';
-  const todos = loadTodos();
+  taskListUl.innerHTML = '';
+  const tasks = loadTasks();
   if (value === 'all') {
-    todos.todoList.forEach(todo => {
-      appendTodoInHTML(todo);
+    tasks.taskList.forEach(task => {
+      appendTaskInHTML(task);
     });
   } else if (value === 'pending') {
-    todos.todoList.forEach(todo => {
-      if (!todo.isCompleted) {
-        appendTodoInHTML(todo);
+    tasks.taskList.forEach(task => {
+      if (!task.isCompleted) {
+        appendTaskInHTML(task);
       }
     });
   } else {
-    todos.todoList.forEach(todo => {
-      if (todo.isCompleted) {
-        appendTodoInHTML(todo);
+    tasks.taskList.forEach(task => {
+      if (task.isCompleted) {
+        appendTaskInHTML(task);
       }
     });
   }
 }
 
 // reset html after any operation
-function resetHtmlTodos(todos) {
-  todoListUl.innerHTML = '';
-  todos.todoList.forEach(todo => appendTodoInHTML(todo));
+function resetHtmlTasks(tasks) {
+  taskListUl.innerHTML = '';
+  tasks.taskList.forEach(task => appendTaskInHTML(task));
   updateUI();
 }
 
 // Toggle Task completed
-function toggleTodo(event) {
-  const todoItem = event.target.parentElement.parentElement;
-  const todoId = parseInt(todoItem.getAttribute('data-id'));
-  const todos = loadTodos();
-  todos.todoList.forEach(todo => {
-    if (todo.id === todoId) {
-      todo.isCompleted = !todo.isCompleted;
+function toggleTask(event) {
+  const taskItem = event.target.parentElement.parentElement;
+  const taskId = parseInt(taskItem.getAttribute('data-id'));
+  const tasks = loadTasks();
+  tasks.taskList.forEach(task => {
+    if (task.id === taskId) {
+      task.isCompleted = !task.isCompleted;
     }
   });
-  refreshTodos(todos);
-  resetHtmlTodos(todos);
+  refreshTasks(tasks);
+  resetHtmlTasks(tasks);
 }
 
 // Delete specific task
-function deleteTodo(event) {
-  const todoItem = event.target.parentElement.parentElement;
-  const todoId = parseInt(todoItem.getAttribute('data-id'));
-  let todos = loadTodos();
-  todos.todoList = todos.todoList.filter(todo => todo.id != todoId);
-  refreshTodos(todos);
-  resetHtmlTodos(todos);
+function deleteTask(event) {
+  const taskItem = event.target.parentElement.parentElement;
+  const taskId = parseInt(taskItem.getAttribute('data-id'));
+  let tasks = loadTasks();
+  tasks.taskList = tasks.taskList.filter(task => task.id != taskId);
+  refreshTasks(tasks);
+  resetHtmlTasks(tasks);
 }
 
 // Edit Task
-function editTodo(event) {
-  const todoItem = event.target.parentElement.parentElement;
-  const todoId = parseInt(todoItem.getAttribute('data-id'));
-  let todos = loadTodos();
+function editTask(event) {
+  const taskItem = event.target.parentElement.parentElement;
+  const taskId = parseInt(taskItem.getAttribute('data-id'));
+  let tasks = loadTasks();
 
   const updatedText = prompt('Enter the updated task text');
   if (updatedText !== null && updatedText.trim() !== '') {
-    todos.todoList.forEach(todo => {
-      if (todo.id === todoId) {
-        todo.text = updatedText;
+    tasks.taskList.forEach(task => {
+      if (task.id === taskId) {
+        task.text = updatedText;
       }
     });
   } else {
     alert('Task update canceled.');
   }
-  refreshTodos(todos);
-  resetHtmlTodos(todos);
+  refreshTasks(tasks);
+  resetHtmlTasks(tasks);
 }
 
 // Update the UI
 function updateUI() {
-  const todos = loadTodos();
-  const completedCount = todos.todoList.filter(todo => todo.isCompleted).length;
-  totalTask.textContent = `Total tasks: ${todos.todoList.length}`;
+  const tasks = loadTasks();
+  const completedCount = tasks.taskList.filter(task => task.isCompleted).length;
+  totalTask.textContent = `Total tasks: ${tasks.taskList.length}`;
 
   completedTask.textContent = `Completed: ${completedCount}`;
 
-  emptyList.style.display = todos.todoList.length === 0 ? 'block' : 'none';
-  filterButtons.style.display = todos.todoList.length === 0 ? 'none' : 'flex';
+  emptyList.style.display = tasks.taskList.length === 0 ? 'block' : 'none';
+  filterButtons.style.display = tasks.taskList.length === 0 ? 'none' : 'flex';
 }
 
 /////////////// Event Listeners
@@ -191,29 +191,29 @@ filterButton.forEach(btn => {
 
 // Click event for the add button
 submitButton.addEventListener('click', () => {
-  handleTodoSubmission();
+  handleTaskSubmission();
 });
 
-// Keydown event to allow adding a todo when pressing Enter
-todoInput.addEventListener('keydown', event => {
+// Keydown event to allow adding a task when pressing Enter
+taskInput.addEventListener('keydown', event => {
   if (event.key === 'Enter') {
-    handleTodoSubmission();
+    handleTaskSubmission();
   }
 });
 
 // Trim input value on change (removes leading/trailing spaces)
-todoInput.addEventListener('change', event => {
+taskInput.addEventListener('change', event => {
   event.target.value = event.target.value.trim();
 });
 
-// Load todos when the page loads
-const todos = loadTodos();
-if (todos.todoList.length === 0) {
+// Load tasks when the page loads
+const tasks = loadTasks();
+if (tasks.taskList.length === 0) {
   emptyList.style.display = 'block';
   filterButtons.style.display = 'none';
 } else {
-  todos.todoList.forEach(todo => {
-    appendTodoInHTML(todo);
+  tasks.taskList.forEach(task => {
+    appendTaskInHTML(task);
   });
 }
 updateUI();
