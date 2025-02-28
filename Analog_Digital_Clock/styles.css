@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #e6e6fa;
+  padding: 20px;
+  overflow: hidden;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(147, 112, 219, 0.08) 50%,
+    transparent 100%
+  );
+  animation: scanline 6s linear infinite;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+
+  align-items: center;
+  gap: 30px;
+  background: rgba(25, 25, 112, 0.15);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #9370db, #40e0d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.clock {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: rgba(16, 16, 64, 0.3);
+  border: 10px solid rgba(147, 112, 219, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(147, 112, 219, 0.2),
+    inset 0 0 20px rgba(64, 224, 208, 0.1);
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #40e0d0;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 12px #40e0d0;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgba(230, 230, 250, 0.9);
+  padding: 20px;
+}
+
+.number span {
+  display: inline-block;
+  transform: rotate(calc(-1 * var(--rotation)));
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  transform-origin: bottom;
+  border-radius: 4px;
+  transform: translateX(-50%) rotate(0deg);
+  transition: transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+.hour {
+  width: 8px;
+  height: 30%;
+  background: linear-gradient(to top, #9370db, #40e0d0);
+  left: 50%;
+}
+
+.minute {
+  width: 6px;
+  height: 40%;
+  background: linear-gradient(to top, #40e0d0, #9370db);
+  left: 50%;
+}
+
+.second {
+  width: 4px;
+  height: 45%;
+  background: #ff69b4;
+  left: 50%;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+.digital-clock {
+  font-size: 3.5rem;
+  font-weight: bold;
+  padding: 20px 40px;
+  background: rgba(16, 16, 64, 0.4);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 12px rgba(147, 112, 219, 0.4);
+  letter-spacing: 3px;
+}
+
+.am-pm {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 5px;
+  background: rgba(64, 224, 208, 0.15);
+  color: #40e0d0;
+  padding: 5px 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.date {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.8;
+  color: #9370db;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    gap: 50px;
+  }
+}
+
+/* Add these number elements to your HTML inside the clock div */
+.number:nth-child(1) {
+  --rotation: 0deg;
+} /* 12 */
+.number:nth-child(2) {
+  --rotation: 90deg;
+} /* 3 */
+.number:nth-child(3) {
+  --rotation: 180deg;
+} /* 6 */
+.number:nth-child(4) {
+  --rotation: 270deg;
+} /* 9 */
