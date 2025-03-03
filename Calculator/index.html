@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="assets/Dtafalonso-Android-Lollipop-Calculator.512.png" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>My Calculator</h1>
+    </header>
+    <div class="calculator">
+      <div class="screen">
+        <span id="expression"></span>
+      </div>
+      <div class="buttons">
+        <button class="btn" id="ac" data-type="action" data-value="AC">
+          AC
+        </button>
+        <button class="btn" id="del" data-type="action" data-value="DEL">
+          DEL
+        </button>
+        <!-- <button class="btn" id="percent" data-type="action" data-value="%">
+            %
+          </button> -->
+        <button class="btn operator" id="divide" data-type="operator" data-value="/">
+          ÷
+        </button>
+
+        <button class="btn" id="seven" data-type="number" data-value="7">
+          7
+        </button>
+        <button class="btn" id="eight" data-type="number" data-value="8">
+          8
+        </button>
+        <button class="btn" id="nine" data-type="number" data-value="9">
+          9
+        </button>
+        <button class="btn operator" id="multiply" data-type="operator" data-value="*">
+          ×
+        </button>
+
+        <button class="btn" id="four" data-type="number" data-value="4">
+          4
+        </button>
+        <button class="btn" id="five" data-type="number" data-value="5">
+          5
+        </button>
+        <button class="btn" id="six" data-type="number" data-value="6">
+          6
+        </button>
+        <button class="btn operator" id="minus" data-type="operator" data-value="-">
+          -
+        </button>
+
+        <button class="btn" id="one" data-type="number" data-value="1">
+          1
+        </button>
+        <button class="btn" id="two" data-type="number" data-value="2">
+          2
+        </button>
+        <button class="btn" id="three" data-type="number" data-value="3">
+          3
+        </button>
+        <button class="btn operator" id="plus" data-type="operator" data-value="+">
+          +
+        </button>
+
+        <button class="btn" id="dot" data-type="action" data-value=".">
+          .
+        </button>
+        <button class="btn" id="zero" data-type="number" data-value="0">
+          0
+        </button>
+        <button class="btn" id="double-zero" data-type="number" data-value="00">
+          00
+        </button>
+        <button class="btn operator" id="equals" data-type="action" data-value="=">
+          =
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
