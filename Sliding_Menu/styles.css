@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: -360px;
+  width: 300px;
+  height: 100%;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 0 0 8px;
+}
+
+.panel.active {
+  right: 0;
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-btn {
+  padding: 12px 24px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 20px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-btn:active {
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 12px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: #ff0000;
+  transform: scale(1.1);
+}
+
+.menu-item {
+  padding: 1rem;
+  margin: 8px 0;
+  background: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.menu-item:hover {
+  background: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+  padding: 2rem;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.toggle-descrip {
+  color: #666;
+  margin: 0 20px 20px;
+  font-size: 0.9rem;
+}
+
+.panel h2 {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+
+button:focus {
+  outline: 3px solid rgba(76, 175, 80, 0.3);
+  outline-offset: 2px;
+}
