@@ -1,0 +1,264 @@
+/* General Styling */
+body {
+  background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main Container */
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* BMI Box */
+.bmi-box {
+  background-color: #2c3e50;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.8s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left Panel */
+.left-panel {
+  padding: 15px;
+  border-bottom: 1px solid #444;
+  text-align: center;
+}
+
+/* Tab Buttons */
+.tab {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: 2px solid #00CED1;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.tab button:hover,
+.tab button.active {
+  background-color: #00CED1;
+  border-color: #00CED1;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* Input Groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.3s;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-box label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.height-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  background: #34495e;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #00CED1;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 206, 209, 0.5);
+}
+
+input::placeholder {
+  color: #888;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  background-color: #00CED1;
+  color: #1a1a1a;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #00a8a8;
+  transform: translateY(-2px);
+}
+
+/* Right Panel */
+.right-panel {
+  padding: 15px;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#result {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00CED1;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hidden Class */
+.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .bmi-box {
+    padding: 20px;
+  }
+
+  .tab button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  #result {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .bmi-box {
+    padding: 15px;
+  }
+
+  .tab button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  input {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  #result {
+    font-size: 14px;
+  }
+
+  .height-inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

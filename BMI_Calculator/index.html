@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>BMI Calculator</h1>
+    <div class="bmi-box">
+      <div class="left-panel">
+        <div class="tab">
+          <button id="usBtn" class="active">US Units</button>
+          <button id="metricBtn">Metric Units</button>
+        </div>
+        <div id="metric-inputs" class="input-group hidden">
+          <div class="input-box">
+            <label>Height (cm)</label>
+            <input type="number" id="heightMetric" placeholder="Enter height">
+          </div>
+          <div class="input-box">
+            <label>Weight (kg)</label>
+            <input type="number" id="weightMetric" placeholder="Enter weight">
+          </div>
+        </div>
+        <div id="us-inputs" class="input-group">
+          <div class="input-box">
+            <label>Height</label>
+            <div class="height-inputs">
+              <input type="number" id="heightFeet" placeholder="Feet">
+              <input type="number" id="heightInches" placeholder="Inches">
+            </div>
+          </div>
+          <div class="input-box">
+            <label>Weight (lbs)</label>
+            <input type="number" id="weightUs" placeholder="Enter weight">
+          </div>
+        </div>
+        <button id="calBtn">Calculate</button>
+      </div>
+      <div class="right-panel">
+        <h3>Result</h3>
+        <p id="result">Your BMI will be shown here.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
