@@ -52,3 +52,9 @@ const saladCopy = salad.slice();
 console.log(slRet); // ['🍅', '🍄', '🥦']
 console.log(salad);
 console.log(saladCopy === salad); // false (shallow copy - different reference)
+
+//* ✅ How to Determine if a Value is an Array in JS?
+Array.isArray([1, 2, 3]); // true
+Array.isArray('array'); // false
+Array.isArray({ name: 'array' }); // false
+Array.isArray([]); // true
