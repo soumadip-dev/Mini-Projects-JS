@@ -58,3 +58,7 @@ Array.isArray([1, 2, 3]); // true
 Array.isArray('array'); // false
 Array.isArray({ name: 'array' }); // false
 Array.isArray([]); // true
+
+//* ✅ Array Destructuring in JavaScript(1.Basic)
+const [tomato, mashroom] = salad;
+console.log('Tomato: ', tomato, 'Mashroom: ', mashroom); // 🍅 🍄
