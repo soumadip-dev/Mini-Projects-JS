@@ -43,3 +43,12 @@ console.log(shRet); // 🍒
 console.log(salad); // array after removing element from the beginning
 
 // - pop() and shift() both methods mutate the original array.
+
+//* ✅ How to Copy and Clone an Array in JS?
+
+// slice() - returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+const slRet = salad.slice(0, 3);
+const saladCopy = salad.slice();
+console.log(slRet); // ['🍅', '🍄', '🥦']
+console.log(salad);
+console.log(saladCopy === salad); // false (shallow copy - different reference)
