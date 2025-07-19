@@ -29,3 +29,17 @@ console.log(unRet); // 9
 console.log(salad); // array after adding element at the beginning
 
 // - push() and unshift() both methods mutate the original array.
+
+//* ✅ How to Remove Elements from an Array in JS?
+
+// 1. pop() - removes the last element from an array and returns the removed element
+const poRet = salad.pop();
+console.log(poRet); // 🥜
+console.log(salad); // array after removing element from the end
+
+// 2. shift() - removes the first element from an array and returns the removed element
+const shRet = salad.shift();
+console.log(shRet); // 🍒
+console.log(salad); // array after removing element from the beginning
+
+// - pop() and shift() both methods mutate the original array.
