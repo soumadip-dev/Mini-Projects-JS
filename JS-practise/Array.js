@@ -389,3 +389,9 @@ console.log(result2); // false
 
 const result3 = customers.find(customer => customer.age == 60);
 console.log(result3); // if not found then it will return undefined
+
+// ✅ The findIndex() array method
+// Returns the index of the first element in the array that satisfies the provided testing function. Otherwise -1 is returned.
+
+const result4 = customers.findIndex(customer => customer.age == 60);
+console.log(result4); // if not found then it will return -1
