@@ -1,7 +1,3 @@
-- ✅ The entries() method
-- ✅ The values() method
-- ✅ The flatMap() array method
-
 ## Array Method Mutability and Immutability Table
 
 | Method                       | Mutates Original Array? | Description                                                            |

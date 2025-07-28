@@ -425,3 +425,15 @@ elem.forEach(element => {
   console.log(element);
 });
 // Note-> forEach() method does not return anything (it returns undefined) it just executes a provided function once for each array element and does not return anything, that is the only difference between forEach() and map() methods.
+
+// ✅ The flatMap() array method
+// The flatMap() method first maps each element using a mapping function, then flattens the result into a new array.
+let lastArr = [1, 2, 3, 4];
+console.log(
+  'Using map',
+  lastArr.map(item => [item * 2])
+); // [[2], [4], [6], [8]]
+console.log(
+  'Using flatMap',
+  lastArr.flatMap(item => [item * 2])
+); // [2, 4, 6, 8]
