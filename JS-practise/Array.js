@@ -231,6 +231,14 @@ const spliced = name.toSpliced(1, 2, 'Rahul', 'Raj'); // (start, deleteCount, it
 console.log(spliced); // ['tom', 'Rahul', 'Raj', 'alex']
 console.log(name); // ['tom', 'jane', 'bob', 'alex'] -> Not Mutated
 
+// 4. ✅ The with() array method (New in ES2023)
+const num = [1, 2, 3, 4, 5];
+const newNum = num.with(2, 10); // (index, value)
+const anotherNum = num.with(-2, 10); // also supports negative indexing
+console.log(newNum); // [1, 2, 10, 4, 5]
+console.log(anotherNum); // [1, 2, 3, 10, 5]
+console.log(num); // [1, 2, 3, 4, 5] -> Not Mutated
+
 //* ✅ Grouping elements in Array
 // Grouping elements in Array using Object.groupBy() method is a new feature in ES2023 (ES12) that allows you to group elements in an array based on a certain property or condition.
 const employees = [
