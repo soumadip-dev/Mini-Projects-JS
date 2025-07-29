@@ -417,3 +417,11 @@ const totalExpenseOfMarriedCustomers = customers
   .reduce((acc, curr) => acc + curr, 0);
 
 console.log(totalExpenseOfMarriedCustomers);
+
+//* ✅ The forEach() array method
+// forEach() method executes a provided function once for each array element.
+const elem = [1, 2, 3, 4, 5];
+elem.forEach(element => {
+  console.log(element);
+});
+// Note-> forEach() method does not return anything (it returns undefined) it just executes a provided function once for each array element and does not return anything, that is the only difference between forEach() and map() methods.

@@ -1,4 +1,3 @@
-- ✅ The forEach() array method
 - ✅ The entries() method
 - ✅ The values() method
 - ✅ The flatMap() array method
