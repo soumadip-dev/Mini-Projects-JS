@@ -1,4 +1,3 @@
-- ✅ Array method Chaining
 - ✅ The forEach() array method
 - ✅ The entries() method
 - ✅ The values() method

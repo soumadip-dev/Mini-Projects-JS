@@ -317,7 +317,7 @@ let customers = [
     f_name: 'Sohini',
     l_name: 'Mukherjee',
     gender: 'Female',
-    married: false,
+    married: true,
     age: 64,
     expence: 7000,
     purchased: ['earring', 'chain', 'ring'],
@@ -401,3 +401,19 @@ console.log(result4); // if not found then it will return -1
 
 const result5 = customers.findLastIndex(customer => customer.age >= 60);
 console.log(result5); // if not found then it will return -1
+
+//* ✅ Array method Chaining
+// Array method chaining is a technique in JavaScript that allows you to chain multiple array methods together to perform complex operations on an array in a single statement.
+
+// Example - Get total amount spent by married customers
+
+// Total amount -> reduce()
+// Get their expense -> map() -> Optional
+// Married Customer -> filter()
+
+const totalExpenseOfMarriedCustomers = customers
+  .filter(customer => customer.married)
+  .map(customer => customer.expence)
+  .reduce((acc, curr) => acc + curr, 0);
+
+console.log(totalExpenseOfMarriedCustomers);
