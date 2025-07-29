@@ -395,3 +395,9 @@ console.log(result3); // if not found then it will return undefined
 
 const result4 = customers.findIndex(customer => customer.age == 60);
 console.log(result4); // if not found then it will return -1
+
+// ✅ The findLastIndex() array method
+// Returns the index of the last element in the array that satisfies the provided testing function. Otherwise -1 is returned.
+
+const result5 = customers.findLastIndex(customer => customer.age >= 60);
+console.log(result5); // if not found then it will return -1
