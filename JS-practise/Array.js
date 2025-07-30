@@ -177,3 +177,15 @@ ages.sort(function (a, b) {
   return a === b ? 0 : a > b ? 1 : -1; // change -1 to 1 and 1 to -1 for descending order
 });
 console.log(ages); // [1, 2, 10, 21] -> Correct sorting
+
+// 8. ✅ The splice() array method
+// splice method can be used to remove elements from an array, add elements to an array, or modify elements in an array
+// splice(start,deleteCount,item1,item2,..) -> (start: index to start from), (deleteCount: number of elements to delete), (item1,item2,..: elements to add)
+// splice method always return the deleted elements as an array if nothing deleted then it will return an empty array
+const months = ['Jan', 'April', 'June', 'July'];
+const sliced = months.splice(0, 1, 'Feb', 'March');
+console.log(sliced); // ['Jan']
+console.log(months); // ['Feb', 'March', 'April', 'June', 'July'] -> mutate the original array
+const sliced2 = months.splice(3, 2);
+console.log(sliced2); // ['June', 'July']
+console.log(months); // ['Feb', 'March','April']
