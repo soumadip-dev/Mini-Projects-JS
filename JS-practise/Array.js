@@ -211,4 +211,21 @@ console.log(flatArr.flat(1)); // [ 1, 2, 3, 4, [ 5, [ 6 ] ] ]
 console.log(flatArr.flat(2)); // [ 1, 2, 3, 4, 5, [ 6 ] ]
 console.log(flatArr.flat(Infinity)); // [ 1, 2, 3, 4, 5, 6 ] -> infinite depth
 
+//* ✅ Grouping elements in Array
+// Grouping elements in Array using Object.groupBy() method is a new feature in ES2023 (ES12) that allows you to group elements in an array based on a certain property or condition.
+const employees = [
+  { name: 'Rahul', dept: 'Engineering', salary: 10000 },
+  { name: 'Raj', dept: 'HR', salary: 5000 },
+  { name: 'Ravi', dept: 'Sales', salary: 6000 },
+  { name: 'Ritu', dept: 'HR', salary: 6500 },
+  { name: 'Riya', dept: 'Sales', salary: 5500 },
+  { name: 'Rina', dept: 'Engineering', salary: 7000 },
+];
 
+const groupedByDet = Object.groupBy(employees, ({ dept }) => dept);
+console.log(groupedByDet);
+
+const groupedBySalary = Object.groupBy(employees, ({ salary }) => {
+  return salary >= 6000 ? 'high' : 'low';
+});
+console.log(groupedBySalary);
