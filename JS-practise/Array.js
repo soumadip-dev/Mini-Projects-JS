@@ -225,6 +225,12 @@ const sorted = name.toSorted();
 console.log(sorted); // ['alex', 'bob', 'jane', 'tom']
 console.log(name); // ['tom', 'jane', 'bob', 'alex'] -> Not Mutated
 
+// 3. ✅ The toSpliced() array method
+// toSpliced method returns a new array with the elements spliced. It does not mutate the original array.
+const spliced = name.toSpliced(1, 2, 'Rahul', 'Raj'); // (start, deleteCount, item1, item2, ..)
+console.log(spliced); // ['tom', 'Rahul', 'Raj', 'alex']
+console.log(name); // ['tom', 'jane', 'bob', 'alex'] -> Not Mutated
+
 //* ✅ Grouping elements in Array
 // Grouping elements in Array using Object.groupBy() method is a new feature in ES2023 (ES12) that allows you to group elements in an array based on a certain property or condition.
 const employees = [
