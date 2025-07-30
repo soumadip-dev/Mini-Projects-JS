@@ -197,5 +197,11 @@ console.log(junkFood.at(0)); // 🍿
 console.log(junkFood.at(-2)); // 🍔
 console.log(junkFood.at(-9)); // undefined
 
+// 10. ✅ The copyWithin() array method
+// copyWithin method copies a sequence of array elements within the array.
+// copyWithin(target, start, end) -> (target: index to copy elements to), (start: index to start copying from), (end: index to stop copying from)
+const copyArr = ['a', 'b', 'c', 'd', 'e'];
+copyArr.copyWithin(0, 3, 5); // copy elements from index 3 to 5 (5 not included) to index 0
+console.log(copyArr); // ['d', 'e', 'c', 'd', 'e']
 
 
