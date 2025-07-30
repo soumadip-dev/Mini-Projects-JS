@@ -219,6 +219,12 @@ const reversed = name.toReversed();
 console.log(reversed); // ['tom', 'jane', 'bob', 'alex']
 console.log(name); // ['tom', 'jane', 'bob', 'alex'] -> Not Mutated
 
+// 2. ✅ The toSorted() array method
+// toSorted method returns a new array with the elements sorted in ascending order. It does not mutate the original array.
+const sorted = name.toSorted();
+console.log(sorted); // ['alex', 'bob', 'jane', 'tom']
+console.log(name); // ['tom', 'jane', 'bob', 'alex'] -> Not Mutated
+
 //* ✅ Grouping elements in Array
 // Grouping elements in Array using Object.groupBy() method is a new feature in ES2023 (ES12) that allows you to group elements in an array based on a certain property or condition.
 const employees = [
