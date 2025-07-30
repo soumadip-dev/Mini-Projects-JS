@@ -204,4 +204,11 @@ const copyArr = ['a', 'b', 'c', 'd', 'e'];
 copyArr.copyWithin(0, 3, 5); // copy elements from index 3 to 5 (5 not included) to index 0
 console.log(copyArr); // ['d', 'e', 'c', 'd', 'e']
 
+// 11. ✅ The flat() array method
+// flat method is used to flatten an array. It takes a depth parameter which specifies how deep the array should be flattened.
+const flatArr = [1, 2, [3, 4, [5, [6]]]];
+console.log(flatArr.flat(1)); // [ 1, 2, 3, 4, [ 5, [ 6 ] ] ]
+console.log(flatArr.flat(2)); // [ 1, 2, 3, 4, 5, [ 6 ] ]
+console.log(flatArr.flat(Infinity)); // [ 1, 2, 3, 4, 5, 6 ] -> infinite depth
+
 
