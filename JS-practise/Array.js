@@ -189,3 +189,13 @@ console.log(months); // ['Feb', 'March', 'April', 'June', 'July'] -> mutate the 
 const sliced2 = months.splice(3, 2);
 console.log(sliced2); // ['June', 'July']
 console.log(months); // ['Feb', 'March','April']
+
+// 9. ✅ The at() array method
+// at method takes an index and returns the element at that index. It also supports negative indexing.
+const junkFood = ['🍿', '🍔', '🍕'];
+console.log(junkFood.at(0)); // 🍿
+console.log(junkFood.at(-2)); // 🍔
+console.log(junkFood.at(-9)); // undefined
+
+
+
