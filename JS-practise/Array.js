@@ -93,3 +93,20 @@ let num1 = 2;
 let num2 = 1;
 [num1, num2] = [num2, num1];
 console.log(num1, num2); // 1 2
+
+//* ✅ The length property
+const array1 = [1, 2, 3];
+console.log(array1.length); // 3
+
+// Note: Array can hold 2*32-1 length elements
+// const array2 = new Array(4294967296); ->  Invalid array length
+
+// We can also change the length of the array
+array1.length = 2;
+console.log(array1); // remove the last element from the array -> [1, 2]
+
+array1.length = 5;
+console.log(array1); // [1, 2, <3 empty items>]
+
+// We cannot assign a negative value to the length property
+// array1.length = -1; -> Invalid array length
