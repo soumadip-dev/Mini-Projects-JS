@@ -136,7 +136,17 @@ console.log(colors); // ['red', 'pink', 'blue']
 
 // 4. ✅ The includes() array method
 // Determine whether an array includes a certain element, returning true or false as appropriate.
-const names = ['Ram', 'Sam', 'Jodu', 'modu'];
+const names = ['Ram', 'Sam', 'Jodu', 'modu', 'Ram'];
 console.log(names.includes('Ram')); // True
 console.log(names.includes('ram')); // False -> case sensitive
 console.log(names.includes('Ramu')); // False
+
+// 5. ✅ The indexOf() array method
+// Return the first index at which a given element can be found in the array, or -1 if it is not present.
+console.log(names.indexOf('Ram')); // 0
+console.log(names.indexOf('ram')); // -1 -> case sensitive
+console.log(names.indexOf('Ramu')); // -1
+
+// - lastIndexOf() array method
+// Return the last index at which a given element can be found in the array, or -1 if it is not present.
+console.log(names.lastIndexOf('Ram')); // 4
