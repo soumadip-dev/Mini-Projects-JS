@@ -156,3 +156,24 @@ console.log(names.lastIndexOf('Ram')); // 4
 const reverse = names.reverse();
 console.log(reverse); // ['Ramu', 'modu', 'Jodu', 'Sam', 'Ram']
 console.log(names); // mutate the original array
+
+// 7. ✅ The sort() array method
+// Sort method converts the elements to strings and then sorts them. The default sort order is ascending.
+const name = ['tom', 'alex', 'bob', 'jane'];
+console.log('After default sorting: ', names.sort()); // ['alex', 'bob', 'jane', 'tom']
+console.log(names); // mutate the original array
+
+// Sort in descending order ( We need a custom comparator function ), if two elements are equal then return 0 else if a is greater than b return -1 else return 1
+name.sort(function (a, b) {
+  return a === b ? 0 : a > b ? -1 : 1;
+});
+console.log('After custom sorting: ', name); // ['tom', 'jane', 'bob', 'alex']
+
+let ages = [1, 10, 21, 2];
+ages.sort();
+console.log(ages); // [1, 10, 2, 21] -> Wrong sorting because it converts the elements to strings and then sorts them.
+// To fix this we need to provide a comparator function
+ages.sort(function (a, b) {
+  return a === b ? 0 : a > b ? 1 : -1; // change -1 to 1 and 1 to -1 for descending order
+});
+console.log(ages); // [1, 2, 10, 21] -> Correct sorting
