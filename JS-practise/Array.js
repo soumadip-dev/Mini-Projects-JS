@@ -70,3 +70,8 @@ console.log(mango, orange); // If orange is not provided, it will be assigned th
 // - ✅ How to Skip a Value in an Array?
 const [banana, , cherry] = ['🍌', '🍍', '🍒'];
 console.log(banana, cherry);
+
+// - ✅ Nested Array Destructuring in JS
+
+const [one, [four, [six, seven]]] = [1, [4, [6, 7]]];
+console.log(`one: ${one}, four: ${four}, six: ${six} , seven: ${seven}`);
