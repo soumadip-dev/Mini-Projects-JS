@@ -150,3 +150,9 @@ console.log(names.indexOf('Ramu')); // -1
 // - lastIndexOf() array method
 // Return the last index at which a given element can be found in the array, or -1 if it is not present.
 console.log(names.lastIndexOf('Ram')); // 4
+
+// 6. ✅ The reverse() array method
+// Reverse the order of the elements in an array.
+const reverse = names.reverse();
+console.log(reverse); // ['Ramu', 'modu', 'Jodu', 'Sam', 'Ram']
+console.log(names); // mutate the original array
