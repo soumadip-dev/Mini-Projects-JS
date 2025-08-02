@@ -72,7 +72,6 @@ const [banana, , cherry] = ['🍌', '🍍', '🍒'];
 console.log(banana, cherry);
 
 // - ✅ Nested Array Destructuring in JS
-
 const [one, [four, [six, seven]]] = [1, [4, [6, 7]]];
 console.log(`one: ${one}, four: ${four}, six: ${six} , seven: ${seven}`);
 
@@ -80,3 +79,10 @@ console.log(`one: ${one}, four: ${four}, six: ${six} , seven: ${seven}`);
 // It allows you to represent an indefinite number of arguments as an array.
 const [a, b, ...rest] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(a, b, rest);
+
+//* ✅ How to Use the Spread Operator in JS?
+// It allows you to expand an iterable (like an array) into its individual elements.
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
