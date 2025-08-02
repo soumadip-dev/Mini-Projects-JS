@@ -111,7 +111,7 @@ console.log(array1); // [1, 2, <3 empty slots>]
 // We cannot assign a negative value to the length property
 // array1.length = -1; // ->Invalid array length
 
-//* ✅ JavaScript Array Methods - join()
+//* ✅ JavaScript Array Methods
 
 // 1. ✅ The concat() array method
 // Merge two or more arrays and return a new array.
@@ -125,3 +125,11 @@ console.log(first, second); // no change in original arrays
 // Return a string of all the array elements joined together by a separator.
 const joined = merged.join(', ');
 console.log(joined); // 1, 2, 3, 4, 5, 6
+
+// 3. ✅ The fill() array method
+// Fill all the array elements with a static value.
+const colors = ['red', 'green', 'blue'];
+colors.fill('yellow'); // ['red', 'yellow', 'blue']
+console.log(colors); // mutate the original array
+colors.fill('pink', 1, 2); // ['',startIndex, endIndex]
+console.log(colors); // ['red', 'pink', 'blue']
