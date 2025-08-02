@@ -66,3 +66,7 @@ console.log('Tomato: ', tomato, 'Mashroom: ', mashroom); // 🍅 🍄
 // - ✅ How to Assign a Default Value to a Variable?
 const [mango, orange = '🍊'] = ['🥭'];
 console.log(mango, orange); // If orange is not provided, it will be assigned the default value of '🍊'
+
+// - ✅ How to Skip a Value in an Array?
+const [banana, , cherry] = ['🍌', '🍍', '🍒'];
+console.log(banana, cherry);
