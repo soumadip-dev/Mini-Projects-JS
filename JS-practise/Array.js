@@ -133,3 +133,10 @@ colors.fill('yellow'); // ['red', 'yellow', 'blue']
 console.log(colors); // mutate the original array
 colors.fill('pink', 1, 2); // ['',startIndex, endIndex]
 console.log(colors); // ['red', 'pink', 'blue']
+
+// 4. ✅ The includes() array method
+// Determine whether an array includes a certain element, returning true or false as appropriate.
+const names = ['Ram', 'Sam', 'Jodu', 'modu'];
+console.log(names.includes('Ram')); // True
+console.log(names.includes('ram')); // False -> case sensitive
+console.log(names.includes('Ramu')); // False
