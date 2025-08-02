@@ -110,3 +110,13 @@ console.log(array1); // [1, 2, <3 empty slots>]
 
 // We cannot assign a negative value to the length property
 // array1.length = -1; // ->Invalid array length
+
+//* ✅ JavaScript Array Methods
+
+// 1. ✅ The concat() array method
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+const merged = first.concat(second); // [1, 2, 3, 4, 5, 6]
+console.log(merged);
+console.log(first, second); // no change in original arrays
