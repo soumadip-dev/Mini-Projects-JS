@@ -86,3 +86,10 @@ const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const arr3 = [...arr1, ...arr2];
 console.log(arr3);
+
+//* ✅ Destructuring Use Cases in JavaScript
+// - ✅ How to Swap Values with Destructuring?
+let num1 = 2;
+let num2 = 1;
+[num1, num2] = [num2, num1];
+console.log(num1, num2); // 1 2
