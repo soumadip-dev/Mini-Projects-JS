@@ -257,3 +257,21 @@ const groupedBySalary = Object.groupBy(employees, ({ salary }) => {
   return salary >= 6000 ? 'high' : 'low';
 });
 console.log(groupedBySalary);
+
+//* ✅ The Array-Like
+// Aray-Like objects are objects that have a length property and can be accessed using index. But they are not arrays. They are objects.
+const arr_like = { 0: 'I', 1: 'am', 2: 'array like', length: 3 };
+console.log(arr_like.length); // 3
+console.log(arr_like[0]); // 'I'
+console.log(arr_like[2]); // 'array like'
+console.log(Array.isArray(arr_like)); // false
+console.log(arr_like instanceof Object); // true
+
+function temp() {
+  console.log('Array-Like Object: ' + Array.from(arguments)); // arguments is an array-like object, not an array, so if we want to apply any array method on it, it will throw an error
+  // For this we need to convert it into an array
+  const args = Array.from(arguments);
+  // We can also do [...arguments] to convert it into an array
+  console.log('Converted to Array: ' + args);
+}
+temp(1, 2, 3, 4, 5);
