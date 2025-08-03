@@ -288,3 +288,48 @@ const ret = Array.fromAsync({
 // Array.of() method is used to create an array from a variable number of arguments.
 const arr = Array.of(1, 'name', { name: 'Soumadip' }, [4, 5]);
 console.log(arr);
+
+//* ✅ Array Iterator Methods in JavaScript
+
+let customers = [
+  {
+    id: 1,
+    f_name: 'Soumadip',
+    l_name: 'Majila',
+    gender: 'Male',
+    married: false,
+    age: 21,
+    expence: 5000,
+    purchased: ['book', 'pen', 'pencil'],
+  },
+  {
+    id: 2,
+    f_name: 'Sourav',
+    l_name: 'Mondal',
+    gender: 'Male',
+    married: true,
+    age: 65,
+    expence: 10000,
+    purchased: ['shirt', 'pant', 'shoes'],
+  },
+  {
+    id: 3,
+    f_name: 'Sohini',
+    l_name: 'Mukherjee',
+    gender: 'Female',
+    married: false,
+    age: 64,
+    expence: 7000,
+    purchased: ['earring', 'chain', 'ring'],
+  },
+];
+
+//  ✅ The filter() array method
+// filter method creates a new array with all elements that pass the test implemented by the provided function.
+
+/*const newArray = arr.filter((element, index, array) => {
+  // Do something here
+})*/
+// - Get 'senior Citizens' by Filtering out other customers
+const seniorCitizens = customers.filter(customer => customer.age >= 60);
+console.log(seniorCitizens);
