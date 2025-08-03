@@ -377,3 +377,9 @@ console.log(totalAge / count);
 
 const result = customers.some(customer => customer.age >= 60);
 console.log(result); // true
+
+// ✅ The every() array method
+// Checks whether all elements in the array pass the test implemented by the provided function.
+
+const result2 = customers.every(customer => customer.age >= 60);
+console.log(result2); // false
