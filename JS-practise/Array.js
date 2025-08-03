@@ -275,3 +275,14 @@ function temp() {
   console.log('Converted to Array: ' + args);
 }
 temp(1, 2, 3, 4, 5);
+
+//* ✅ The Array.fromAsync() array method
+// Array.fromAsync() method is used to convert an async iterable into an array.
+const ret = Array.fromAsync({
+  0: Promise.resolve('Soumadip'),
+  1: Promise.resolve('Majila'),
+  length: 2,
+}).then(res => console.log(res));
+
+
+
