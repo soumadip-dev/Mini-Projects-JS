@@ -350,4 +350,13 @@ const newArray = customers.map(customer => {
 });
 console.log(newArray);
 
+// ✅ The reduce() array method
+// The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
 
+// Example - 1
+const nums = [1, 2, 3, 4, 5];
+const sumOutput = nums.reduce((acc, curr) => {
+  acc = acc + curr;
+  return acc;
+}, 0);
+console.log(sumOutput);
