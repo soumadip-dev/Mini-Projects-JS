@@ -383,3 +383,9 @@ console.log(result); // true
 
 const result2 = customers.every(customer => customer.age >= 60);
 console.log(result2); // false
+
+// ✅ The find() array method
+// Returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+
+const result3 = customers.find(customer => customer.age == 60);
+console.log(result3); // if not found then it will return undefined
