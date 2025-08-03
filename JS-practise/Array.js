@@ -370,5 +370,10 @@ const totalAge = customers.reduce((avg, customer) => {
   }
   return avg;
 }, 0);
-
 console.log(totalAge / count);
+
+// ✅ The some() array method
+// Checks whether at least one element in the array passes the test implemented by the provided function.
+
+const result = customers.some(customer => customer.age >= 60);
+console.log(result); // true
