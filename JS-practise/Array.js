@@ -310,7 +310,7 @@ let customers = [
     married: true,
     age: 65,
     expence: 10000,
-    purchased: ['shirt', 'pant', 'shoes'],
+    purchased: ['shirt', 'book', 'shoes'],
   },
   {
     id: 3,
@@ -360,3 +360,15 @@ const sumOutput = nums.reduce((acc, curr) => {
   return acc;
 }, 0);
 console.log(sumOutput);
+
+// Example - 2 - average age of customer who have purchased the book
+let count = 0;
+const totalAge = customers.reduce((avg, customer) => {
+  if (customer.purchased?.includes('book')) {
+    avg = avg + customer.age;
+    count++;
+  }
+  return avg;
+}, 0);
+
+console.log(totalAge / count);
