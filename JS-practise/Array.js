@@ -268,11 +268,11 @@ console.log(Array.isArray(arr_like)); // false
 console.log(arr_like instanceof Object); // true
 
 function temp() {
-  console.log('Array-Like Object: ' + Array.from(arguments)); // arguments is an array-like object, not an array, so if we want to apply any array method on it, it will throw an error
+  console.log('Array-Like Object: ', Array.from(arguments)); // arguments is an array-like object, not an array, so if we want to apply any array method on it, it will throw an error
   // For this we need to convert it into an array
   const args = Array.from(arguments);
   // We can also do [...arguments] to convert it into an array
-  console.log('Converted to Array: ' + args);
+  console.log('Converted to Array: ', args);
 }
 temp(1, 2, 3, 4, 5);
 
