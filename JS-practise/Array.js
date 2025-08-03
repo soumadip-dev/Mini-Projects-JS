@@ -333,3 +333,21 @@ let customers = [
 // - Get 'senior Citizens' by Filtering out other customers
 const seniorCitizens = customers.filter(customer => customer.age >= 60);
 console.log(seniorCitizens);
+
+// ✅ The map() array method
+// The map() method creates a new array with the results of applying a function to each element in the original array.
+
+const newArray = customers.map(customer => {
+  if (customer.gender === 'Male') {
+    customer.title = 'Mr.';
+  } else if (customer.gender === 'Female' && customer.married === false) {
+    customer.title = 'Ms.';
+  } else {
+    customer.title = 'Mrs.';
+  }
+  customer.full_name = `${customer.title} ${customer.f_name} ${customer.l_name}`;
+  return customer;
+});
+console.log(newArray);
+
+
