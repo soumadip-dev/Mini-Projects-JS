@@ -284,5 +284,7 @@ const ret = Array.fromAsync({
   length: 2,
 }).then(res => console.log(res));
 
-
-
+//* ✅ The Array.of() array method
+// Array.of() method is used to create an array from a variable number of arguments.
+const arr = Array.of(1, 'name', { name: 'Soumadip' }, [4, 5]);
+console.log(arr);
